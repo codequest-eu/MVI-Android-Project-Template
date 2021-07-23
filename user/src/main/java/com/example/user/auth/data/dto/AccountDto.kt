@@ -7,12 +7,11 @@ import moe.banana.jsonapi2.Resource
 
 @JsonApi(type = "account")
 internal data class AccountDto(
-    val email: String = ""
-) : Resource() {
-    val session: HasOne<SessionDto> = HasOne()
+    val email: String = "",
+    val session: HasOne<SessionDto> = HasOne(),
     val user: HasOne<UserDto> = HasOne()
-
+) : Resource() {
     fun getTokens(): Tokens = session.get(document).let {
-        Tokens(it.access_token, it.refresh_token)
+        Tokens(it.accessToken, it.refreshToken)
     }
 }
