@@ -12,6 +12,6 @@ internal data class AccountDto(
     val user: HasOne<UserDto> = HasOne()
 ) : Resource() {
     fun getTokens(): Tokens = session.get(document).let {
-        Tokens(it.accessToken, it.refreshToken)
+        Tokens(it.access_token, it.refresh_token)
     }
 }

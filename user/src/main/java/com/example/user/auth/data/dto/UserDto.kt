@@ -6,6 +6,6 @@ import moe.banana.jsonapi2.Resource
 
 @JsonApi(type = "user")
 data class UserDto(
-    @Json(name = "first_name") val firstName: String = "",
-    @Json(name = "last_name") val lastName: String = ""
+    @field:Json(name = "first_name") val firstName: String = "",
+    @field:Json(name = "last_name") val lastName: String = ""
 ) : Resource()
