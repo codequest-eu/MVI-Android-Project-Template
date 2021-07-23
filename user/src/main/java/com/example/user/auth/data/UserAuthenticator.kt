@@ -29,7 +29,10 @@ internal class UserAuthenticator @Inject constructor(
         return response
             .request
             .newBuilder()
-            .header(Consts.AUTHORIZATION_HEADER_KEY, Consts.AUTHORIZATION_HEADER_VALUE.format(authRepository.load()?.accessToken))
+            .header(
+                Consts.AUTHORIZATION_HEADER_KEY,
+                Consts.AUTHORIZATION_HEADER_VALUE.format(authRepository.load()?.accessToken)
+            )
             .build()
     }
 }

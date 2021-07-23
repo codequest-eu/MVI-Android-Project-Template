@@ -13,7 +13,7 @@ data class RegisterRequest(
                 data = Data(
                     attributes = mapOf(
                         ATTRIBUTE_EMAIL
-                            to username,
+                                to username,
                         ATTRIBUTE_PASSWORD to password
                     ),
                     type = TYPE_ACCOUNTS

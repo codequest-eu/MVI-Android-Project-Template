@@ -8,9 +8,14 @@ import io.reactivex.rxjava3.core.Flowable
 class RegisterPresenter @ViewModelInject constructor(
     initialState: RegisterViewState,
     private val registerUserCase: RegisterUseCase
-) : BasePresenter<RegisterViewState, RegisterViewState.PartialState, RegisterIntent, RegisterViewEvent>(initialState) {
+) : BasePresenter<RegisterViewState, RegisterViewState.PartialState, RegisterIntent, RegisterViewEvent>(
+    initialState
+) {
 
-    override fun reduceViewState(previousState: RegisterViewState, partialState: RegisterViewState.PartialState): RegisterViewState {
+    override fun reduceViewState(
+        previousState: RegisterViewState,
+        partialState: RegisterViewState.PartialState
+    ): RegisterViewState {
         return when (partialState) {
             is RegisterViewState.PartialState.LoginSuccess -> RegisterViewState()
         }
