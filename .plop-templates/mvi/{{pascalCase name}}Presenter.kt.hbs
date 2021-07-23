@@ -1,10 +1,12 @@
 package {{ basePackage }}.{{camelCase name }}
 
-import androidx.hilt.lifecycle.ViewModelInject
 import com.example.base.presentation.BasePresenter
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Flowable
+import javax.inject.Inject
 
-class {{pascalCase name}}Presenter @ViewModelInject constructor(
+@HiltViewModel
+class {{pascalCase name}}Presenter @Inject constructor(
         initialState: {{pascalCase name}}ViewState
 ) : BasePresenter<{{pascalCase name}}ViewState, {{pascalCase name}}ViewState.PartialState, {{pascalCase name}}Intent, {{pascalCase name}}ViewEvent>(initialState) {
 
