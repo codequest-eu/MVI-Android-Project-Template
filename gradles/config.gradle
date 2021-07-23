@@ -14,6 +14,7 @@ ext {
 
     versions = [
             // Implementation
+            activity            : '1.2.4',
             appcompat           : '1.3.0',
             constraint          : '2.0.4',
             core                : '1.6.0',
@@ -21,7 +22,7 @@ ext {
             hilt                : '2.37',
             desugaring          : '1.0.9',
             glide               : '4.12.0',
-            fragment            : '1.3.5',
+            fragment            : '1.3.6',
             jsonapi             : '3.5.0',
             kotlin              : '1.5.21',
             lifecycle           : '2.3.1',
