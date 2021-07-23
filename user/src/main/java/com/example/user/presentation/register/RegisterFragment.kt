@@ -15,7 +15,11 @@ class RegisterFragment : BaseFragment<RegisterViewState, RegisterViewEvent, Regi
 
     private lateinit var registerView: RegisterMviView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         registerView = RegisterMviView(inflater, container, ::acceptIntent)
         return registerView.rootView
     }

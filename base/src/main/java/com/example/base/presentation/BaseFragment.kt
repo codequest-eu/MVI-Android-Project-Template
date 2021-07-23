@@ -9,10 +9,10 @@ import java.io.Serializable
 import javax.inject.Inject
 
 abstract class BaseFragment<
-    VIEW_STATE : Serializable,
-    VIEW_EVENT,
-    PRESENTER : BasePresenter<VIEW_STATE, *, *, VIEW_EVENT>>() :
-    Fragment() {
+        VIEW_STATE : Serializable,
+        VIEW_EVENT,
+        PRESENTER : BasePresenter<VIEW_STATE, *, *, VIEW_EVENT>>
+    : Fragment() {
 
     abstract val presenter: PRESENTER
 

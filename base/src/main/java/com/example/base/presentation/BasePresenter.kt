@@ -42,7 +42,10 @@ abstract class BasePresenter<VIEW_STATE : Serializable, PARTIAL_VIEW_STATE, INTE
         intentProcessor.onNext(intent)
     }
 
-    private fun subscribeToViewIntents(initialState: VIEW_STATE, flowables: Flowable<PARTIAL_VIEW_STATE>) =
+    private fun subscribeToViewIntents(
+        initialState: VIEW_STATE,
+        flowables: Flowable<PARTIAL_VIEW_STATE>
+    ) =
         flowables
             .observeOn(reduceScheduler)
             .scan(initialState, this::reduceViewState)
@@ -51,5 +54,8 @@ abstract class BasePresenter<VIEW_STATE : Serializable, PARTIAL_VIEW_STATE, INTE
 
     protected abstract fun provideViewIntents(): Flowable<PARTIAL_VIEW_STATE>
 
-    protected abstract fun reduceViewState(previousState: VIEW_STATE, partialState: PARTIAL_VIEW_STATE): VIEW_STATE
+    protected abstract fun reduceViewState(
+        previousState: VIEW_STATE,
+        partialState: PARTIAL_VIEW_STATE
+    ): VIEW_STATE
 }

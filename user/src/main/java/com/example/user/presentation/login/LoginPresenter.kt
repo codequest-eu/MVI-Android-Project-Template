@@ -10,15 +10,19 @@ import io.reactivex.rxjava3.core.Flowable
 internal class LoginPresenter @ViewModelInject constructor(
     initialState: LoginViewState,
     private val getUserUseCase: GetUserUseCase
-) : BasePresenter<LoginViewState, LoginViewState.PartialState, LoginIntent, LoginViewEvent>(initialState) {
+) : BasePresenter<LoginViewState, LoginViewState.PartialState, LoginIntent, LoginViewEvent>(
+    initialState
+) {
 
-    override fun reduceViewState(previousState: LoginViewState, partialState: LoginViewState.PartialState): LoginViewState =
-        when (partialState) {
-            is WelcomeState ->
-                previousState.copy(name = partialState.loggedOutName, isLoggedIn = false)
-            is LoggedInState ->
-                previousState.copy(name = partialState.loggedInName, isLoggedIn = true)
-        }
+    override fun reduceViewState(
+        previousState: LoginViewState,
+        partialState: LoginViewState.PartialState
+    ): LoginViewState = when (partialState) {
+        is WelcomeState ->
+            previousState.copy(name = partialState.loggedOutName, isLoggedIn = false)
+        is LoggedInState ->
+            previousState.copy(name = partialState.loggedInName, isLoggedIn = true)
+    }
 
     override fun provideViewIntents(): Flowable<LoginViewState.PartialState> =
         intentProcessor.flatMap {

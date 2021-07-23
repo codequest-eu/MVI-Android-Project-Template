@@ -58,7 +58,10 @@ internal class AuthModule {
             if (accessToken != null) {
                 val builder = chain.request().newBuilder()
                 val request = builder
-                    .header(Consts.AUTHORIZATION_HEADER_KEY, Consts.AUTHORIZATION_HEADER_VALUE.format(accessToken))
+                    .header(
+                        Consts.AUTHORIZATION_HEADER_KEY,
+                        Consts.AUTHORIZATION_HEADER_VALUE.format(accessToken)
+                    )
                     .build()
 
                 chain.proceed(request)
