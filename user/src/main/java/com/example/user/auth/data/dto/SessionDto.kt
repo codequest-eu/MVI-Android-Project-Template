@@ -5,6 +5,6 @@ import moe.banana.jsonapi2.Resource
 
 @JsonApi(type = "session")
 data class SessionDto(
-        val access_token: String = "",
-        val refresh_token: String = ""
+    val access_token: String = "",
+    val refresh_token: String = ""
 ) : Resource()

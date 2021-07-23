@@ -8,7 +8,7 @@ object TestUtils {
 
     fun jsonApiMoshi(vararg clazzes: Class<out Resource>): Moshi {
         val builder = ResourceAdapterFactory
-                .builder()
+            .builder()
 
         clazzes.forEach {
             builder.add(it)
@@ -18,9 +18,9 @@ object TestUtils {
 
 
         return Moshi
-                .Builder()
-                .add(jsonApiAdapterFactory)
-                .build()
+            .Builder()
+            .add(jsonApiAdapterFactory)
+            .build()
     }
 
 }

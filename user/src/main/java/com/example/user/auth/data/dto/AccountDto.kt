@@ -7,7 +7,7 @@ import moe.banana.jsonapi2.Resource
 
 @JsonApi(type = "account")
 internal data class AccountDto(
-        val email: String = ""
+    val email: String = ""
 ) : Resource() {
     val session: HasOne<SessionDto> = HasOne()
     val user: HasOne<UserDto> = HasOne()

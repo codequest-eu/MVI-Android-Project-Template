@@ -5,8 +5,8 @@ import moe.banana.jsonapi2.Resource
 
 @JsonApi(type = "accounts")
 data class RegisterRequestDto(
-        val email: String = "",
-        val password: String = ""
+    val email: String = "",
+    val password: String = ""
 ) : Resource() {
 
 }

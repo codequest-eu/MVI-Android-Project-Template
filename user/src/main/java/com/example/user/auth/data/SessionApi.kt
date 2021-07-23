@@ -1,7 +1,7 @@
 package com.example.user.auth.data
 
-import com.example.user.auth.data.dto.RegisterRequestDto
 import com.example.user.auth.data.dto.AccountDto
+import com.example.user.auth.data.dto.RegisterRequestDto
 import com.example.user.auth.model.Tokens
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single

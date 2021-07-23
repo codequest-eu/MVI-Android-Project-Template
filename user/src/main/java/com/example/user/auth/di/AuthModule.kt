@@ -103,10 +103,10 @@ internal class AuthModule {
     @ElementsIntoSet
     fun provideJsonApiResources(): MutableSet<Class<out Resource>> {
         return mutableSetOf(
-                RegisterRequestDto::class.java,
-                AccountDto::class.java,
-                UserDto::class.java,
-                SessionDto::class.java
+            RegisterRequestDto::class.java,
+            AccountDto::class.java,
+            UserDto::class.java,
+            SessionDto::class.java
         )
     }
 
