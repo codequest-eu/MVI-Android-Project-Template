@@ -16,6 +16,7 @@ ext {
             // Implementation
             activity            : '1.2.4',
             appcompat           : '1.3.0',
+            compose             : '1.0.0',
             constraint          : '2.0.4',
             core                : '1.6.0',
             hiltx               : '1.0.0',
