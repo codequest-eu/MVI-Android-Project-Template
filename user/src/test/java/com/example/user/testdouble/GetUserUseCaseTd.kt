@@ -8,7 +8,7 @@ internal class GetUserUseCaseTd : GetUserUseCase {
 
     var user: User? = User(DEFAULT_USER_NAME)
 
-    override fun execute(): Single<User> {
+    override operator fun invoke(): Single<User> {
         return user?.let { Single.just(it) } ?: Single.error(IllegalStateException("No user found"))
     }
 

@@ -1,10 +1,13 @@
 package com.example.base.network
 
 import com.example.base.BuildConfig
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import moe.banana.jsonapi2.Resource
+import moe.banana.jsonapi2.ResourceAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,7 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
     @Provides
-    @Named(CONTENTTYPE_INTERCEPTOR_NAME)
+    @Named(CONTENT_TYPE_INTERCEPTOR_NAME)
     fun contentTypeInterceptor(): Interceptor {
         return Interceptor { chain ->
             val request = chain.request().newBuilder()
@@ -41,7 +44,7 @@ class NetworkModule {
     @Provides
     @Singleton
     fun baseOkHttpClient(
-        @Named(CONTENTTYPE_INTERCEPTOR_NAME) contentTypeInterceptor: Interceptor,
+        @Named(CONTENT_TYPE_INTERCEPTOR_NAME) contentTypeInterceptor: Interceptor,
         @Named(LOGGING_INTERCEPTOR_NAME) loggingInterceptor: Interceptor
     ): OkHttpClient {
         return OkHttpClient.Builder().apply {
@@ -52,14 +55,31 @@ class NetworkModule {
     }
 
     @Provides
+    @Singleton
+    fun provideMoshi(clazzes: MutableSet<Class<out Resource>>): Moshi {
+        val builder = ResourceAdapterFactory
+            .builder()
+
+        clazzes.forEach {
+            builder.add(it)
+        }
+
+        return Moshi
+            .Builder()
+            .add(builder.build())
+            .build()
+    }
+
+    @Provides
     fun provideBaseRetrofitFactory(
-        okHttpClient: OkHttpClient
+        okHttpClient: OkHttpClient,
+        moshi: Moshi
     ): BaseRetrofitFactory {
-        return BaseRetrofitFactory(okHttpClient)
+        return BaseRetrofitFactory(okHttpClient, moshi)
     }
 
     companion object {
-        private const val CONTENTTYPE_INTERCEPTOR_NAME = "CONTENTTYPE_INTERCEPTOR_NAME"
+        private const val CONTENT_TYPE_INTERCEPTOR_NAME = "CONTENT_TYPE_INTERCEPTOR_NAME"
         private const val LOGGING_INTERCEPTOR_NAME = "LOGGING_INTERCEPTOR_NAME"
 
         const val BACKEND_URL = "https://development-api.devstarter.codequest.dev/"
