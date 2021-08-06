@@ -49,8 +49,7 @@ internal class LoginPresenter @ViewModelInject constructor(
             return Flowable.empty()
         }
 
-        return getUserUseCase
-            .execute()
+        return getUserUseCase()
             .map { LoggedInState(it.name) }
             .toFlowable()
     }

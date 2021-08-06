@@ -15,28 +15,29 @@ interface RegisterUseCase {
         object Failure : Result()
     }
 
-    fun execute(username: String, password: String): Single<Result>
+    operator fun invoke(username: String, password: String): Single<Result>
 }
 
 internal class RegisterUseCaseImpl @Inject constructor(
     private val sessionApi: SessionApi,
     private val authRepository: AuthRepository
 ) : RegisterUseCase {
-    override fun execute(username: String, password: String): Single<RegisterUseCase.Result> {
-        return sessionApi
-            .register(RegisterRequestDto(username, password))
-            .subscribeOn(SchedulersFactory.io)
-            .doOnSuccess {
-                it.getTokens().let { t ->
-                    authRepository.store(t)
-                }
+    override operator fun invoke(
+        username: String,
+        password: String
+    ): Single<RegisterUseCase.Result> = sessionApi
+        .register(RegisterRequestDto(username, password))
+        .subscribeOn(SchedulersFactory.io)
+        .doOnSuccess {
+            it.getTokens().let { t ->
+                authRepository.store(t)
             }
-            .map {
-                RegisterUseCase.Result.Success as RegisterUseCase.Result
-            }
-            .onErrorReturn {
-                Log.e(Consts.TAG, "RegisterUseCase.execute exception $it")
-                RegisterUseCase.Result.Failure
-            }
-    }
+        }
+        .map {
+            RegisterUseCase.Result.Success as RegisterUseCase.Result
+        }
+        .onErrorReturn {
+            Log.e(Consts.TAG, "RegisterUseCase.execute exception $it")
+            RegisterUseCase.Result.Failure
+        }
 }
