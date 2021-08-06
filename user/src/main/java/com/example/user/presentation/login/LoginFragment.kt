@@ -18,7 +18,11 @@ internal class LoginFragment : BaseFragment<LoginViewState, LoginViewEvent, Logi
 
     private var loginView: LoginMviView? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return LoginMviView(inflater, container, presenter::acceptIntent).let {
             loginView = it
             it.rootView
@@ -40,8 +44,16 @@ internal class LoginFragment : BaseFragment<LoginViewState, LoginViewEvent, Logi
 
     override fun handleEvent(viewEvent: LoginViewEvent) {
         when (viewEvent) {
-            is LoginViewEvent.LoginFailed -> Toast.makeText(requireContext(), R.string.login_failed, Toast.LENGTH_SHORT).show()
-            is LoginViewEvent.LoginSuccess -> navigation.navigate(LoginFragmentDirections.actionLoginToHome())
+            is LoginViewEvent.LoginFailed -> Toast.makeText(
+                requireContext(),
+                R.string.login_failed,
+                Toast.LENGTH_SHORT
+            ).show()
+            is LoginViewEvent.LoginSuccess -> navigation.navigate(
+                LoginFragmentDirections.actionLoginToHome(
+                    "hi!"
+                )
+            )
         }
     }
 

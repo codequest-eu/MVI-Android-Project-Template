@@ -99,7 +99,8 @@ sealed class TestPartialState {
 
 data class TestEvent(val what: String)
 
-class TestPresenter : BasePresenter<TestViewState, TestPartialState, TestIntent, TestEvent>(TestViewState(0)) {
+class TestPresenter
+    : BasePresenter<TestViewState, TestPartialState, TestIntent, TestEvent>(TestViewState(0)) {
     override fun provideViewIntents(): Flowable<TestPartialState> {
         return intentProcessor
             .map {
@@ -110,7 +111,10 @@ class TestPresenter : BasePresenter<TestViewState, TestPartialState, TestIntent,
             }
     }
 
-    override fun reduceViewState(previousState: TestViewState, partialState: TestPartialState): TestViewState {
+    override fun reduceViewState(
+        previousState: TestViewState,
+        partialState: TestPartialState
+    ): TestViewState {
         return when (partialState) {
             is TestPartialState.Add -> TestViewState(previousState.count + partialState.count)
             is TestPartialState.Sub -> TestViewState(previousState.count - partialState.count)
