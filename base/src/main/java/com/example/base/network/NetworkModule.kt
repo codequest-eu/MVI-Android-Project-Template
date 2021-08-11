@@ -57,7 +57,6 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideMoshi(clazzes: MutableSet<Class<out Resource>>): Moshi {
-
         val builder = ResourceAdapterFactory
             .builder()
 

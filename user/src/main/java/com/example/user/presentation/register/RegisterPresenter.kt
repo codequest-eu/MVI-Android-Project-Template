@@ -34,7 +34,7 @@ class RegisterPresenter @Inject constructor(
     }
 
     private fun triggerRegister(it: RegisterIntent.Register): Flowable<RegisterViewState.PartialState> {
-        return registerUserCase.execute(it.username, it.password)
+        return registerUserCase(it.username, it.password)
             .map {
                 RegisterViewState.PartialState.LoginSuccess as RegisterViewState.PartialState
             }

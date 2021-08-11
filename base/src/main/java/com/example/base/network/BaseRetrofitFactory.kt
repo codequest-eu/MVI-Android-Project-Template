@@ -10,8 +10,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class BaseRetrofitFactory(
     private val okHttpClient: OkHttpClient,
     private val moshi: Moshi
-) :
-    RetrofitFactory by retrofitFactory(okHttpClient, moshi) {
+) : RetrofitFactory by retrofitFactory(okHttpClient, moshi) {
 
     fun buildUpon(block: OkHttpClient.Builder.() -> Unit): RetrofitFactory {
         val client = okHttpClient

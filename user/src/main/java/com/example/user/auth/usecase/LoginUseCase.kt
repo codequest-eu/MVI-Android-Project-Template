@@ -11,15 +11,14 @@ interface LoginUserCase {
         object Success : Result()
     }
 
-    fun execute(username: String, password: String): Single<Result>
+    operator fun invoke(username: String, password: String): Single<Result>
 }
 
 internal class LoginUseCaseImpl @Inject constructor(
     private val sessionApi: SessionApi,
     private val authRepository: AuthRepository
 ) : LoginUserCase {
-
-    override fun execute(username: String, password: String): Single<LoginUserCase.Result> {
+    override operator fun invoke(username: String, password: String): Single<LoginUserCase.Result> {
         return sessionApi
             .login(username, password)
             .subscribeOn(SchedulersFactory.io)

@@ -51,8 +51,7 @@ internal class LoginPresenter @Inject constructor(
             return Flowable.empty()
         }
 
-        return getUserUseCase
-            .execute()
+        return getUserUseCase()
             .map { LoggedInState(it.name) }
             .toFlowable()
     }
