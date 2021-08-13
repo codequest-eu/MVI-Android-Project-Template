@@ -8,6 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
+const val LOGIN_THRESHOLD = 3
+
 @HiltViewModel
 internal class LoginPresenter @Inject constructor(
     initialState: LoginViewState,
@@ -39,6 +41,8 @@ internal class LoginPresenter @Inject constructor(
     }
 
     private var loginCalls = 0
+
+    @SuppressWarnings("ReturnCount")
     private fun login(): Flowable<out LoginViewState.PartialState> {
         loginCalls += 1
         if (loginCalls == 2) {
@@ -46,7 +50,7 @@ internal class LoginPresenter @Inject constructor(
             return Flowable.empty()
         }
 
-        if (loginCalls % 3 == 0) {
+        if (loginCalls % LOGIN_THRESHOLD == 0) {
             publishEvent(LoginViewEvent.LoginSuccess)
             return Flowable.empty()
         }

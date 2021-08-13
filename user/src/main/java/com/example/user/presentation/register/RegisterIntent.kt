@@ -1,6 +1,6 @@
 package com.example.user.presentation.register
 
-sealed class RegisterIntent() {
+sealed class RegisterIntent {
     data class Register(
         val username: String,
         val password: String

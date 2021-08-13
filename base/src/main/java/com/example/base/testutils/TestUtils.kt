@@ -16,11 +16,9 @@ object TestUtils {
 
         val jsonApiAdapterFactory = builder.build()
 
-
         return Moshi
             .Builder()
             .add(jsonApiAdapterFactory)
             .build()
     }
-
 }

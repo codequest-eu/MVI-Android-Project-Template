@@ -31,8 +31,7 @@ class RegisterFragment : BaseFragment<RegisterViewState, RegisterViewEvent, Regi
         }
     }
 
-    override fun handleEvent(viewEvent: RegisterViewEvent) {
-    }
+    override fun handleEvent(viewEvent: RegisterViewEvent) = Unit
 
     override fun render(viewState: RegisterViewState) {
         registerView.render(viewState)

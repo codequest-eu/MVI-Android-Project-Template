@@ -6,7 +6,7 @@ import io.reactivex.rxjava3.internal.schedulers.TrampolineScheduler
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import org.junit.Rule
 
-abstract class BaseTest {
+open class BaseTest {
     @Rule
     @JvmField
     var testSchedulerRule = InstantTaskExecutorRule()

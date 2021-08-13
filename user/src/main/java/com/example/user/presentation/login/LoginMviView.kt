@@ -11,7 +11,7 @@ internal class LoginMviView(
     layoutInflater: LayoutInflater,
     parent: ViewGroup?,
     override val acceptIntent: (LoginIntent) -> Unit
-) : BaseMviView<LoginViewState, LoginIntent>() {
+) : BaseMviView<LoginViewState, LoginIntent> {
     private val binding = FragmentLoginBinding.inflate(layoutInflater, parent, false)
     override val rootView = binding.root
 

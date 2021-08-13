@@ -8,11 +8,8 @@ import io.reactivex.rxjava3.kotlin.addTo
 import java.io.Serializable
 import javax.inject.Inject
 
-abstract class BaseFragment<
-        VIEW_STATE : Serializable,
-        VIEW_EVENT,
-        PRESENTER : BasePresenter<VIEW_STATE, *, *, VIEW_EVENT>>
-    : Fragment() {
+abstract class BaseFragment<VIEW_STATE : Serializable, VIEW_EVENT, PRESENTER : BasePresenter<VIEW_STATE, *, *, VIEW_EVENT>> :
+    Fragment() {
 
     abstract val presenter: PRESENTER
 
