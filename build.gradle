@@ -11,14 +11,14 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
-        classpath 'com.google.gms:google-services:4.3.8'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10"
-        classpath "com.github.ben-manes:gradle-versions-plugin:0.33.0"
-        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${versions.detekt}"
-        classpath "com.google.dagger:hilt-android-gradle-plugin:${versions.hilt}"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
-        classpath "org.jlleitschuh.gradle:ktlint-gradle:10.0.0"
+        classpath(libs.gradle)
+        classpath(libs.googleServices)
+        classpath(libs.kotlinPluginGradle)
+        classpath(libs.gradleVersionsPluginGradle)
+        classpath(libs.detektPluginGradle)
+        classpath(libs.hiltAndroidPluginGradle)
+        classpath(libs.navigationSafeArgsPluginGradle)
+        classpath(libs.ktlintGradle)
     }
 }
 
