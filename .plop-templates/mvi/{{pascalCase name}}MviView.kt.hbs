@@ -10,7 +10,7 @@ class {{pascalCase name}}MviView(
         layoutInflater: LayoutInflater,
         parent: ViewGroup?,
         override val acceptIntent: ({{pascalCase name}}Intent) -> Unit
-) : BaseMviView<{{pascalCase name}}ViewState, {{pascalCase name}}Intent>() {
+) : BaseMviView<{{pascalCase name}}ViewState, {{pascalCase name}}Intent> {
     override val rootView = TODO()
 
     override fun render(viewState: {{pascalCase name}}ViewState) {
