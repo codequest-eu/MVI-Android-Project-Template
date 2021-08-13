@@ -56,9 +56,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //region debug dependencies
-    debugImplementation "com.facebook.stetho:stetho:${versions.stetho}"
-    debugImplementation "com.facebook.stetho:stetho-okhttp3:${versions.stetho}"
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
+    debugImplementation(libs.bundles.stetho)
+    debugImplementation(libs.leakcanary)
     //endregion
 
     //region desugaring
