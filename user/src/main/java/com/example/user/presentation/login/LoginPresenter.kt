@@ -1,5 +1,6 @@
 package com.example.user.presentation.login
 
+import android.util.Log
 import com.example.base.presentation.BasePresenter
 import com.example.user.presentation.login.LoginViewState.PartialState.LoggedInState
 import com.example.user.presentation.login.LoginViewState.PartialState.WelcomeState
@@ -31,6 +32,7 @@ internal class LoginPresenter @Inject constructor(
             when (it) {
                 is LoginIntent.Login -> login()
                 LoginIntent.Logout -> logout()
+                LoginIntent.TestIntentThatIsSentVeryOften -> thatLaunchesWhenEachIntentIsEmitted()
             }
         }
 
@@ -54,5 +56,11 @@ internal class LoginPresenter @Inject constructor(
         return getUserUseCase()
             .map { LoggedInState(it.name) }
             .toFlowable()
+    }
+
+    private fun thatLaunchesWhenEachIntentIsEmitted(): Flowable<out LoginViewState.PartialState> {
+        Log.d("TAG", "How to debounce that logic?")
+
+        return Flowable.empty()
     }
 }

@@ -3,6 +3,7 @@ package com.example.user.presentation.login
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import com.example.base.presentation.BaseMviView
 import com.example.user.R
 import com.example.user.databinding.FragmentLoginBinding
@@ -22,6 +23,10 @@ internal class LoginMviView(
 
         binding.logoutButton.setOnClickListener {
             acceptIntent(LoginIntent.Logout)
+        }
+
+        binding.testEdittext.addTextChangedListener {
+            acceptIntent(LoginIntent.TestIntentThatIsSentVeryOften)
         }
     }
 
