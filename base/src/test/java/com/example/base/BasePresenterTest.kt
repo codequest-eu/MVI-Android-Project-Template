@@ -99,8 +99,8 @@ sealed class TestPartialState {
 
 data class TestEvent(val what: String)
 
-class TestPresenter
-    : BasePresenter<TestViewState, TestPartialState, TestIntent, TestEvent>(TestViewState(0)) {
+class TestPresenter :
+    BasePresenter<TestViewState, TestPartialState, TestIntent, TestEvent>(TestViewState(0)) {
     override fun provideViewIntents(): Flowable<TestPartialState> {
         return intentProcessor
             .map {

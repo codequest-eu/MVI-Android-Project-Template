@@ -9,7 +9,7 @@ class RegisterMviView(
     layoutInflater: LayoutInflater,
     parent: ViewGroup?,
     override val acceptIntent: (RegisterIntent) -> Unit
-) : BaseMviView<RegisterViewState, RegisterIntent>() {
+) : BaseMviView<RegisterViewState, RegisterIntent> {
     private val binding = FragmentRegisterBinding.inflate(layoutInflater, parent, false)
     override val rootView = binding.root
 
@@ -28,6 +28,5 @@ class RegisterMviView(
         }
     }
 
-    override fun render(viewState: RegisterViewState) {
-    }
+    override fun render(viewState: RegisterViewState) = Unit
 }

@@ -1,65 +1,36 @@
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
-    implementation "androidx.core:core:${versions.core}"
-    implementation "androidx.core:core-ktx:${versions.core}"
+    implementation(libs.activityCompose)
+    implementation(libs.activityKtx)
+    implementation(libs.appcompat)
 
-    implementation "androidx.fragment:fragment-ktx:${versions.fragment}"
-    implementation "androidx.activity:activity-ktx:${versions.activity}"
-    implementation "androidx.appcompat:appcompat:${versions.appcompat}"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}"
-    implementation "androidx.constraintlayout:constraintlayout:${versions.constraint}"
-    implementation "androidx.vectordrawable:vectordrawable:${versions.vector}"
-    implementation "androidx.multidex:multidex:${versions.multidex}"
+    implementation(libs.bundles.compose)
+    implementation(libs.constraintlayout)
+    implementation(libs.bundles.core)
 
-    implementation "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
-    implementation "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
+    implementation(libs.fragmentKtx)
 
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:${versions.lifecycle}"
+    implementation(libs.glide)
 
-    //Security
-    implementation "androidx.security:security-crypto:1.1.0-alpha03"
+    implementation(libs.hiltAndroid)
+    kapt(libs.bundles.hiltKapt)
 
-    //Security
-    implementation "androidx.security:security-crypto:1.1.0-alpha03"
+    implementation(libs.bundles.jsonApi)
 
-    //Hilt
-    implementation "com.google.dagger:hilt-android:${versions.hilt}"
-    kapt "com.google.dagger:hilt-android-compiler:${versions.hilt}"
-    kapt "androidx.hilt:hilt-compiler:${versions.hiltx}"
+    implementation(libs.kotlinStdLib)
 
-    //Rx
-    implementation "io.reactivex.rxjava3:rxjava:${versions.rxJava}"
-    implementation "io.reactivex.rxjava3:rxandroid:${versions.rxAndroid}"
-    implementation "io.reactivex.rxjava3:rxkotlin:${versions.rxKotlin}"
-    implementation "com.github.akarnokd:rxjava3-extensions:${versions.rxExt}"
+    implementation(libs.bundles.lifecycle)
+    implementation(libs.lifecycleViewmodelCompose)
 
-    //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
-    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
-    implementation "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
-    implementation "com.squareup.okhttp3:logging-interceptor:${versions.loggingInterceptor}"
-    implementation "com.squareup.retrofit2:adapter-rxjava3:${versions.retrofit}"
+    implementation(libs.material)
+    implementation(libs.bundles.moshi)
+    implementation(libs.multidex)
 
-    //moshi
-    implementation "com.squareup.moshi:moshi:${versions.moshi}"
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+    implementation(libs.bundles.navigation)
 
-    // jsonapi
-    implementation "moe.banana:moshi-jsonapi:${versions.jsonapi}"
-    implementation "moe.banana:moshi-jsonapi-retrofit-converter:${versions.jsonapi}"
+    implementation(libs.bundles.retrofit)
+    implementation(libs.bundles.rx)
 
-    // others
-    implementation "com.google.android.material:material:${versions.material}"
-    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    implementation(libs.security)
 
-    // compose
-    implementation "androidx.compose.ui:ui:${versions.compose}"
-    implementation "androidx.compose.ui:ui-tooling:${versions.compose}"
-    implementation "androidx.compose.foundation:foundation:${versions.compose}"
-    implementation "androidx.compose.material:material:${versions.compose}"
-    implementation "androidx.compose.material:material-icons-core:${versions.compose}"
-    implementation "androidx.compose.runtime:runtime-rxjava3:${versions.compose}"
-
-    implementation "androidx.activity:activity-compose:1.3.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
+    implementation(libs.vectordrawable)
 }

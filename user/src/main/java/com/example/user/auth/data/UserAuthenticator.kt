@@ -1,5 +1,6 @@
 package com.example.user.auth.data
 
+import android.util.Log
 import com.example.user.auth.Consts
 import okhttp3.Authenticator
 import okhttp3.Request
@@ -11,6 +12,7 @@ internal class UserAuthenticator @Inject constructor(
     private val refreshTokenApi: RefreshTokenApi,
     private val authRepository: AuthRepository
 ) : Authenticator {
+    @SuppressWarnings("TooGenericExceptionCaught")
     override fun authenticate(route: Route?, response: Response): Request? {
         try {
             if (response.request.header(Consts.AUTHORIZATION_HEADER_KEY) != null) {
@@ -23,6 +25,7 @@ internal class UserAuthenticator @Inject constructor(
                 }
             }
         } catch (e: Exception) {
+            Log.e(UserAuthenticator::class.simpleName, e.toString())
             return null
         }
 

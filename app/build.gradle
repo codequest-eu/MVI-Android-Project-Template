@@ -1,5 +1,5 @@
-apply plugin: 'com.android.application'
-apply from: "$rootProject.projectDir/gradles/plugs.gradle"
+apply(plugin: "com.android.application")
+apply(from: "$rootProject.projectDir/gradles/plugs.gradle")
 
 android {
 
@@ -19,7 +19,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 
@@ -40,28 +40,27 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "1.0.0"
+        kotlinCompilerExtensionVersion libs.versions.compose.get()
     }
 }
 
-apply from: "$rootProject.projectDir/gradles/deps.gradle"
-apply from: "$rootProject.projectDir/gradles/deps-test.gradle"
+apply(from: "$rootProject.projectDir/gradles/deps.gradle")
+apply(from: "$rootProject.projectDir/gradles/deps-test.gradle")
 
 dependencies {
-    implementation project(':base')
-    implementation project(':home')
-    implementation project(':user')
+    implementation project(":base")
+    implementation project(":home")
+    implementation project(":user")
 
     //region implementation dependencies
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(fileTree(dir: "libs", include: ["*.jar"]))
 
     //region debug dependencies
-    debugImplementation "com.facebook.stetho:stetho:${versions.stetho}"
-    debugImplementation "com.facebook.stetho:stetho-okhttp3:${versions.stetho}"
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
+    debugImplementation(libs.bundles.stetho)
+    debugImplementation(libs.leakcanary)
     //endregion
 
     //region desugaring
-    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${versions.desugaring}"
+    coreLibraryDesugaring(libs.desugar)
     //endregion
 }

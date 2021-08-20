@@ -1,1 +1,1 @@
-apply from: "$rootProject.projectDir/gradles/lib.gradle"
+apply(from: "$rootProject.projectDir/gradles/lib.gradle")
