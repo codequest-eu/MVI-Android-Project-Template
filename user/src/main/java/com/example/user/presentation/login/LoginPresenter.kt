@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
-const val LOGIN_THRESHOLD = 3
+private const val LOGIN_THRESHOLD = 3
 
 @HiltViewModel
 internal class LoginPresenter @Inject constructor(
