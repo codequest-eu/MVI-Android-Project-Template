@@ -1,27 +1,36 @@
 dependencies {
-    implementation(libs.kotlinStdLib)
-    implementation(libs.bundles.core)
-    implementation(libs.fragmentKtx)
+    implementation(libs.activityCompose)
     implementation(libs.activityKtx)
-    implementation(libs.security)
-
     implementation(libs.appcompat)
-    implementation(libs.constraintlayout)
-    implementation(libs.vectordrawable)
-    implementation(libs.multidex)
 
-    implementation(libs.bundles.navigation)
-    implementation(libs.bundles.lifecycle)
+    implementation(libs.bundles.compose)
+    implementation(libs.constraintlayout)
+    implementation(libs.bundles.core)
+
+    implementation(libs.fragmentKtx)
+
+    implementation(libs.glide)
 
     implementation(libs.hiltAndroid)
     kapt(libs.bundles.hiltKapt)
-    implementation(libs.bundles.rx)
-    implementation(libs.bundles.retrofit)
-    implementation(libs.bundles.moshi)
+
     implementation(libs.bundles.jsonApi)
-    implementation(libs.glide)
-    implementation(libs.material)
-    implementation(libs.bundles.compose)
-    implementation(libs.activityCompose)
+
+    implementation(libs.kotlinStdLib)
+
+    implementation(libs.bundles.lifecycle)
     implementation(libs.lifecycleViewmodelCompose)
+
+    implementation(libs.material)
+    implementation(libs.bundles.moshi)
+    implementation(libs.multidex)
+
+    implementation(libs.bundles.navigation)
+
+    implementation(libs.bundles.retrofit)
+    implementation(libs.bundles.rx)
+
+    implementation(libs.security)
+
+    implementation(libs.vectordrawable)
 }

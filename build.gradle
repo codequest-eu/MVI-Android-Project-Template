@@ -11,14 +11,14 @@ buildscript {
         }
     }
     dependencies {
-        classpath(libs.gradle)
-        classpath(libs.googleServices)
-        classpath(libs.kotlinPluginGradle)
-        classpath(libs.gradleVersionsPluginGradle)
         classpath(libs.detektPluginGradle)
+        classpath(libs.googleServices)
+        classpath(libs.gradle)
+        classpath(libs.gradleVersionsPluginGradle)
         classpath(libs.hiltAndroidPluginGradle)
-        classpath(libs.navigationSafeArgsPluginGradle)
+        classpath(libs.kotlinPluginGradle)
         classpath(libs.ktlintGradle)
+        classpath(libs.navigationSafeArgsPluginGradle)
     }
 }
 

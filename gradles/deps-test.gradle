@@ -1,16 +1,16 @@
 dependencies {
     //region test dependencies
+    testImplementation(libs.assertjCore)
+    testImplementation(libs.coreTesting)
     testImplementation(libs.junit)
     testImplementation(libs.bundles.mockito)
-    testImplementation(libs.coreTesting)
-    testImplementation(libs.assertjCore)
     //endregion
 
     //region instrumentation test dependencies
-    androidTestImplementation(libs.junitExt)
-    androidTestImplementation(libs.bundles.espresso)
-    androidTestImplementation(libs.runner)
     androidTestImplementation(libs.awaitility)
     androidTestImplementation(libs.composeUiTest)
+    androidTestImplementation(libs.bundles.espresso)
+    androidTestImplementation(libs.junitExt)
+    androidTestImplementation(libs.runner)
     //endregion
 }
