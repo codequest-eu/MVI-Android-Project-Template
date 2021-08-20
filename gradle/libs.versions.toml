@@ -49,7 +49,6 @@ runner = "1.2.0"
 # Classpath
 gradle = "7.0.0"
 googleServices = "4.3.10"
-kotlinPluginGradle = "1.5.10"
 gradleVersionsPluginGradle = "0.33.0"
 navigationSafeArgsPluginGradle = "2.3.5"
 ktlintGradle = "10.0.0"
@@ -161,7 +160,7 @@ gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 googleServices = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 gradleVersionsPluginGradle = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradleVersionsPluginGradle" }
 hiltAndroidPluginGradle = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
-kotlinPluginGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinPluginGradle" }
+kotlinPluginGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 ktlintGradle = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlintGradle" }
 navigationSafeArgsPluginGradle = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationSafeArgsPluginGradle" }
 
